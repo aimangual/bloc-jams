@@ -51,7 +51,7 @@ var setCurrentAlbum = function(album) {
     var albumSongList = document.getElementsByClassName('album-view-song-list')[0];
     
     // #2
-    albumTitle.firstChild.nodeValue = album.title;
+    albumTitle.firstChild.nodeValue = album.name;
     albumArtist.firstChild.nodeValue = album.artist;
     albumReleaseInfo.firstChild.nodeValue = album.year + ' ' + album.label;
     albumImage.setAttribute('src', album.albumArtUrl);
@@ -60,7 +60,7 @@ var setCurrentAlbum = function(album) {
     albumSongList.innerHTML = '';
     
     // #4
-    for (var 1 = 0; i < album.songs.length; i++) {
+    for (var i = 0; i < album.songs.length; i++) {
         albumSongList.innerHTML += createSongRow(i + 1, album.songs[i].title, album,songs[i].duration);
     }
 };
