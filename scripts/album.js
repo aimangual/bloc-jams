@@ -59,12 +59,22 @@ var setCurrentAlbum = function(album) {
     }
 };
 
+var child = document.getElementsByClassName('album-view-title')[0];
+var noParent = document.querySelector('html');
+
 var findParentByClassName = function(element, targetClass) {
     var currentParent = element.parentElement;
-    while (currentParent.className != targetClass) {
-        currentParent = currentParent.parentElement;
+    
+    if (currentParent) {
+        while (currentParent.className && currentParent.className != targetClass) {
+            currentParent = currentParent.parentElement;
+        }
+        
+        if (currentParent.className == targetClass) {
+            return currentParent;
+        } else {
+            alert("Where's my mommy!?");
     }
-    return currentParent;
 };
 
 var getSongItem = function(element) {
